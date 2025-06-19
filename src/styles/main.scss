@@ -5,6 +5,7 @@
 @use 'available-devices';
 @use 'faq';
 @use 'footer';
+@use 'header';
 
 @font-face {
     font-family: Avenir;
@@ -71,16 +72,44 @@ body {
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variaveis.$corTextoSecundario;
-    background-color: #6421ff;
+    background-color: variaveis.$corBotaoPrimario;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$corBotaoPrimario;
+
+    &:hover {
+        background-color: lighten(variaveis.$corBotaoPrimario, 3%);
+        cursor: pointer;
+    }
+
+    &--secondary {
+        background-color: variaveis.$corBotaoSecundario;
+        border-color: variaveis.$corBotaoSecundario ;
+
+        &:hover {
+            background-color: lighten(variaveis.$corBotaoSecundario, 3%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(0, 0, 0, 0.8);
+        border-color: variaveis.$corTextoSecundario ;
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundario ;
+            color: variaveis.$corDeFundo;
+        }
+    }
 }
 
 .image-text-section {
@@ -88,21 +117,25 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    
 
     img {
+        
         max-width: 100%;
     }
 
-    &__text_container { 
+    &__text_container {
         padding: 0 2vw;
 
         h2 {
             margin-bottom: 24px;
         }
     }
+
     &--image-full-width {
         display: block;
         position: relative;
+        
 
         img {
             width: 100%;
